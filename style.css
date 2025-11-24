@@ -112,6 +112,14 @@ header {
     display: none;
 }
 
+@media (max-width: 768px) {
+    .navbar .mobile-logo {
+        display: block;
+        width: 2.5rem;
+        height: 2rem;
+    }
+}
+
 .navbar .logo {
     width: 3.729375rem;
     height: 3.125rem;
