@@ -257,12 +257,32 @@ header {
     animation-fill-mode: both;
 }
 
-.info h6 {
-    font-size: 1.5rem;
-    font-weight: 400;
-    color: #666;
+.hero-tags {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.25rem;
+    margin-top: 0.75rem;
+    padding: 0;
     animation: slideInLeft 1s ease-out 0.4s;
     animation-fill-mode: both;
+}
+
+.hero-tags li {
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: #4d4d4d;
+    position: relative;
+    padding-right: 1.1rem;
+}
+
+.hero-tags li:not(:last-child)::after {
+    content: "•";
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: var(--accent-color);
+    font-weight: 700;
 }
 
 .person-img img {
@@ -302,12 +322,18 @@ header {
 }
 
 .contact-me i {
-    background-color: var(--primary-light);
-    padding: 0.625rem .75rem;
-    border-radius: 10px;
-    font-size: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: var(--text-dark);
+    border-radius: 12px;
+    font-size: 1.4rem;
     transition: var(--transition);
     box-shadow: var(--shadow);
+    border: 1px solid rgba(0, 0, 0, 0.04);
 }
 
 .contact-me i:hover {
@@ -362,10 +388,47 @@ header {
     transition: var(--transition);
 }
 
+.BERRIES span a {
+    color: inherit;
+    text-decoration: none;
+}
+
 .BERRIES span:hover {
     background-color: var(--accent-color);
     color: white;
     border-color: var(--accent-color);
+}
+
+.cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    animation: fadeIn 1s ease-out 0.8s;
+    animation-fill-mode: both;
+}
+
+.cta-row .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background: linear-gradient(45deg, var(--accent-color), #ff8c52);
+    color: white;
+    border: none;
+    padding: 0.9rem 1.5rem;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+}
+
+.cta-row .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+    color: white;
 }
 
 .humburger {
@@ -661,21 +724,25 @@ header {
 
 .grid-port {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(220px, 1fr));
     gap: 1.5rem;
     padding: 2rem;
     background-color: #f0f0f0;
 }
 
 .grid-port .grid-col {
-    height: 20.0625rem;
-    border-radius: 15px;
+    min-height: 20.0625rem;
+    border-radius: 18px;
     overflow: hidden;
     box-shadow: var(--shadow);
     transition: var(--transition);
     position: relative;
     animation: fadeIn 0.5s ease-out;
     animation-fill-mode: both;
+    display: flex;
+    align-items: stretch;
+    background: linear-gradient(135deg, #1d1d1d, #3a2a1f);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .grid-port .grid-col:hover {
@@ -683,44 +750,84 @@ header {
     box-shadow: var(--shadow-hover);
 }
 
-.grid-port .grid-col::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
+.grid-port .product-card {
     width: 100%;
-    height: 100%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
-    opacity: 0;
-    transition: var(--transition);
+    padding: 1.4rem 1.2rem;
+    background: rgba(10, 10, 10, 0.3);
+    backdrop-filter: blur(2px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    z-index: 1;
 }
 
-.grid-port .grid-col:hover::before {
-    opacity: 1;
+.grid-port .product-tag {
+    display: inline-flex;
+    align-self: flex-start;
+    margin-bottom: 1rem;
+    padding: 0.38rem 0.75rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.grid-port .live-tag {
+    background: rgba(255, 107, 53, 0.9);
+    color: #fff;
+}
+
+.grid-port .grid-col h6,
+.grid-port .grid-col p {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.grid-port .grid-col h6 {
+    font-size: 1.42rem;
+    margin-bottom: 0.6rem;
+    line-height: 1.2;
+}
+
+.grid-port .grid-col h6 a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.grid-port .grid-col p {
+    font-size: 0.86rem;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .grid-port .col1 {
-    background: url(./images/Project.png) center / cover no-repeat;
+    background: linear-gradient(135deg, #211d1d, #52321d);
 }
 
 .grid-port .col2 {
-    background: url(./images/Rectangle\ 17.png) center / cover no-repeat;
+    background: linear-gradient(135deg, #19222b, #2f4d5d);
 }
 
 .grid-port .col3 {
-    background: url(./images/Project\ \(1\).png) center / cover no-repeat;
+    background: linear-gradient(135deg, #271a1d, #57413d);
 }
 
 .grid-port .col4 {
-    background: url(./images/Project\ \(2\).png) center / cover no-repeat;
+    background: linear-gradient(135deg, #1d1b2d, #413f68);
 }
 
 .grid-port .col5 {
-    background: url(./images/Project\ \(3\).png) center / cover no-repeat;
+    background: linear-gradient(135deg, #1d2b21, #2e533f);
 }
 
 .grid-port .col6 {
-    background: url(./images/Project.png) center / cover no-repeat;
+    background: linear-gradient(135deg, #1d1d1d, #3f3a2e);
 }
 
 .portfolio .grid-header:last-child {
@@ -831,6 +938,22 @@ footer {
 .social {
     display: flex;
     gap: 1.5rem;
+}
+
+.social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.social a i {
+    color: #fff;
+    font-size: 1.2rem;
 }
 
 .footer-info p {
