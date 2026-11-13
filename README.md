@@ -104,20 +104,19 @@ To add new projects to the portfolio section:
 
 ## Deployment
 
-### GitHub Pages
+This project is designed to deploy as a free static site and does not require a paid hosting account.
 
-1. Push your code to a GitHub repository
+### GitHub Pages (Recommended, Free)
+
+1. Push your code to the GitHub repository
 2. Go to Repository Settings
-3. Scroll to "GitHub Pages" section
-4. Select "main" branch and "/ (root)" folder
-5. Click "Save"
+3. Open the "Pages" section
+4. Select the "GitHub Actions" deployment method
+5. Ensure the workflow in [.github/workflows/static.yml](.github/workflows/static.yml) is enabled
+6. Save and wait for the deployment to complete
 
-### Other Hosting Options
+This setup uses GitHub Pages via GitHub Actions, which is free for public repositories and does not require any paid plan.
 
-- Netlify
-- Vercel
-- Firebase Hosting
-- Any static site hosting service
 
 ## Email Functionality
 
@@ -133,7 +132,6 @@ To set up:
 - Firefox (latest)
 - Safari (latest)
 - Edge (latest)
-
 ## Contributing
 
 1. Fork the repository
