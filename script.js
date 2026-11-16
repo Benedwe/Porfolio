@@ -61,25 +61,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Form submission enhancement
-    const form = document.querySelector('form');
-    if (form) {
-        form.addEventListener('submit', function(e) {
-            // Form will submit normally to Formspree
-            // Show loading state
-            const submitButton = form.querySelector('button[type="submit"]');
-            const originalText = submitButton.textContent;
-            submitButton.textContent = 'Sending...';
-            submitButton.disabled = true;
-            
-            // Reset button after a short delay in case of errors
-            setTimeout(() => {
-                submitButton.textContent = originalText;
-                submitButton.disabled = false;
-            }, 5000);
-        });
-    }
-    
     // Back to top button
     const backToTopButton = document.querySelector('.scroll-up a');
     if (backToTopButton) {

@@ -861,7 +861,8 @@ form {
     animation: fadeIn 1s ease-out;
 }
 
-form input {
+form input:not([name="_honey"]),
+form textarea {
     padding: 1rem 1.5rem;
     background-color: #f5f5f5;
     color: var(--text-dark);
@@ -874,7 +875,8 @@ form input {
     transition: var(--transition);
 }
 
-form input:focus {
+form input:not([name="_honey"]):focus,
+form textarea:focus {
     outline: none;
     border-bottom: 3px solid var(--accent-color);
     border-left: 3px solid var(--accent-color);
@@ -902,6 +904,16 @@ form button:hover {
 form #comment {
     height: 150px;
     resize: vertical;
+    font: inherit;
+    width: 60%;
+    padding: 1rem 1.5rem;
+    color: var(--text-dark);
+    background-color: #f5f5f5;
+    border: none;
+    border-bottom: 3px solid transparent;
+    border-left: 3px solid transparent;
+    border-radius: 10px;
+    transition: var(--transition);
 }
 
 /* Footer */
@@ -1145,6 +1157,10 @@ footer {
     form input {
         width: 90%;
     }
+
+    form textarea {
+        width: 90%;
+    }
     
     .header-info h4 {
         font-size: 2rem;
@@ -1207,6 +1223,10 @@ footer {
     }
     
     form input {
+        width: 100%;
+    }
+
+    form textarea {
         width: 100%;
     }
     

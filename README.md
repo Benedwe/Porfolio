@@ -7,7 +7,7 @@ A modern, responsive portfolio website showcasing skills, projects, and professi
 - **Fully Responsive Design**: Works on all device sizes (mobile, tablet, desktop)
 - **Smooth Animations**: CSS animations and transitions for enhanced user experience
 - **Modern UI**: Clean, professional design with gradient accents
-- **Contact Form**: Email functionality using Formspree (no server-side code required)
+- **Contact Form**: Email forwarding through FormSubmit (no account or server-side code required)
 - **Performance Optimized**: Lightweight and fast-loading
 - **Cross-Browser Compatible**: Works on all modern browsers
 
@@ -18,7 +18,7 @@ A modern, responsive portfolio website showcasing skills, projects, and professi
 - JavaScript (ES6+)
 - Font Awesome Icons
 - Google Fonts
-- Formspree (for contact form handling)
+- FormSubmit (for contact form handling)
 
 ## Getting Started
 
@@ -71,12 +71,11 @@ portfolio/
 
 ### Updating Contact Form
 
-1. Sign up for a free account at [Formspree](https://formspree.io/)
-2. Create a new form and get your unique form endpoint
-3. Replace `YOUR_FORM_ID` in the form action attribute in `index.html`:
+1. Set the recipient email address in the form action in `index.html`:
    ```html
-   <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+   <form action="https://formsubmit.co/you@example.com" method="POST">
    ```
+2. Submit the form once from the deployed site and confirm the activation email FormSubmit sends to that address. FormSubmit does not forward submissions until the address is confirmed.
 
 ### Changing Colors
 
@@ -120,11 +119,9 @@ This setup uses GitHub Pages via GitHub Actions, which is free for public reposi
 
 ## Email Functionality
 
-The contact form uses Formspree to handle form submissions without requiring server-side code. All messages are sent directly to the configured email address without exposing it to users.
+The contact form uses [FormSubmit](https://formsubmit.co/) to forward submissions without requiring an account or server-side code. Its default reCAPTCHA spam protection remains enabled, and the form includes a honeypot field. The first submission triggers an email confirmation step before forwarding is activated.
 
-To set up:
-1. Replace `YOUR_FORM_ID` in the form action with your actual Formspree form ID
-2. Configure your email address in the Formspree dashboard
+To change the recipient, update the email address in the form action. The thank-you redirect points to the GitHub Pages deployment URL and should be updated if the site is hosted elsewhere.
 
 ## Browser Support
 
@@ -155,4 +152,4 @@ This project is open source and available under the [MIT License](LICENSE).
 
 - [Font Awesome](https://fontawesome.com/) for icons
 - [Google Fonts](https://fonts.google.com/) for typography
-- [Formspree](https://formspree.io/) for form handling
+- [FormSubmit](https://formsubmit.co/) for form handling
